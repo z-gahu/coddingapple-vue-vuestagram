@@ -33,17 +33,20 @@ export default {
   data() {
     return {
       게시물: postdata,
+      다음데이터: 0,
     };
   },
   methods: {
     more() {
-      axios
-        .get("https://codingapple1.github.io/vue/more0.json")
-        .then((결과) => {
-          //요청 성공시 실행할 코드
-          console.log("결과", 결과.data);
-          this.게시물.push(결과.data);
-        });
+      const url =
+        "https://codingapple1.github.io/vue/more" + this.다음데이터 + ".json";
+      console.log(" 눌렀을때 addData", this.다음데이터, url);
+      axios.get(url).then((결과) => {
+        //요청 성공시 실행할 코드
+        console.log("결과", 결과.data);
+        this.게시물.push(결과.data);
+        this.다음데이터 = ++this.다음데이터;
+      });
     },
   },
 };
