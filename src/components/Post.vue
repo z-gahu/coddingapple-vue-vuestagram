@@ -21,9 +21,9 @@
 <script>
 import axios from "axios";
 
-axios.get("https://codingapple1.github.io/vue/more0.json").then((결과) => {
-  console.log("!===결과", 결과);
-});
+// axios.get("https://codingapple1.github.io/vue/more0.json").then((결과) => {
+//   console.log("!===결과", 결과);
+// });
 
 export default {
   props: {
