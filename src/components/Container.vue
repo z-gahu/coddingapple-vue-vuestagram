@@ -1,11 +1,8 @@
 <template>
   <div>
-    <Post
-      v-if="step === 0"
-      :게시물="게시물[i]"
-      v-for="(a, i) in 게시물"
-      :key="i"
-    />
+    <div v-if="step === 0">
+      <Post :게시물="게시물[i]" v-for="(a, i) in 게시물" :key="i" />
+    </div>
 
     <!-- 필터선택페이지 -->
     <div v-if="step === 1">
