@@ -14,17 +14,17 @@
 
   <div class="footer">
     <ul class="footer-button-plus">
-      <input type="file" id="file" class="inputfile" />
+      <input @change="upload" type="file" id="file" class="inputfile" />
       <label for="file" class="input-plus">+</label>
     </ul>
   </div>
 
   <!-- <div v-if="step == 0">내용0</div>
   <div v-if="step == 1">내용1</div>
-  <div v-if="step == 2">내용2</div> -->
+  <div v-if="step == 2">내용2</div> 
   <button @click="step = 0">0</button>
   <button @click="step = 1">1</button>
-  <button @click="step = 2">2</button>
+  <button @click="step = 2">2</button> -->
 </template>
 
 <script>
@@ -54,6 +54,14 @@ export default {
           this.게시물.push(결과.data);
           this.더보기++;
         });
+    },
+
+    upload(e) {
+      let 파일 = e.target.files;
+      console.log("파일:", 파일);
+      let url = URL.createObjectURL(파일[0]);
+      console.log("url: ", url);
+      this.step++;
     },
   },
 };
