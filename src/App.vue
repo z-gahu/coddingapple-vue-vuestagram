@@ -9,7 +9,7 @@
     <img src="./assets/logo.png" class="logo" />
   </div>
 
-  <Container :게시물="게시물" :step="step" />
+  <Container :게시물="게시물" :step="step" :첨부이미지="첨부이미지" />
   <button @click="more">더보기</button>
 
   <div class="footer">
@@ -42,6 +42,7 @@ export default {
       게시물: postdata,
       더보기: 0,
       step: 0,
+      첨부이미지: "",
     };
   },
   methods: {
@@ -61,6 +62,7 @@ export default {
       console.log("파일:", 파일);
       let url = URL.createObjectURL(파일[0]);
       console.log("url: ", url);
+      this.첨부이미지 = url;
       this.step++;
     },
   },
