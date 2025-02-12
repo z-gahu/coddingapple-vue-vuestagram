@@ -4,12 +4,18 @@
       <li>Cancel</li>
     </ul>
     <ul class="header-button-right">
-      <li>Next</li>
+      <li v-if="step == 1" @click="step++">Next</li>
+      <li v-if="step == 2" @click="publish">발행</li>
     </ul>
     <img src="./assets/logo.png" class="logo" />
   </div>
 
-  <Container :게시물="게시물" :step="step" :첨부이미지="첨부이미지" />
+  <Container
+    :게시물="게시물"
+    :step="step"
+    :첨부이미지="첨부이미지"
+    @write="작성한글 = $event"
+  />
   <button @click="more">더보기</button>
 
   <div class="footer">
@@ -43,6 +49,7 @@ export default {
       더보기: 0,
       step: 0,
       첨부이미지: "",
+      작성한글: "",
     };
   },
   methods: {
@@ -64,6 +71,22 @@ export default {
       console.log("url: ", url);
       this.첨부이미지 = url;
       this.step++;
+    },
+
+    publish() {
+      //게시물에 내가 업로드한 데이터 추가
+      var 내게시물 = {
+        name: "kh",
+        userImage: "https://picsum.photos/100?random=3",
+        postImage: this.첨부이미지, //내가 업로드한 이미지 url
+        likes: 36,
+        date: "May 15",
+        liked: false,
+        content: this.작성한글, // 내가 입력한 글
+        filter: "perpetua",
+      };
+      this.게시물.unshift(내게시물); // 맨앞에 추가
+      this.step = 0; //처음 페이지로
     },
   },
 };

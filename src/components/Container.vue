@@ -26,7 +26,12 @@
         :style="`background-image: url(${첨부이미지})`"
       ></div>
       <div class="write">
-        <textarea class="write-box">write!</textarea>
+        <textarea
+          @input="$emit('write', $event.target.value)"
+          class="write-box"
+        >
+write!</textarea
+        >
       </div>
     </div>
   </div>
@@ -42,6 +47,7 @@ export default {
     게시물: Array,
     step: Number,
     첨부이미지: String,
+    작성글: String,
   },
   methods: {},
 };
