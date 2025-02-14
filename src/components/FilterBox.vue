@@ -1,5 +1,8 @@
 <template>
-  <div class="filter-item" :style="`background-image:url(${첨부이미지})`"></div>
+  <div
+    :class="`${필터} filter-item`"
+    :style="`background-image:url(${첨부이미지})`"
+  ></div>
 </template>
 
 <script>
@@ -10,6 +13,7 @@ export default {
   name: "filterBox",
   props: {
     첨부이미지: String,
+    필터: String,
   },
 };
 </script>

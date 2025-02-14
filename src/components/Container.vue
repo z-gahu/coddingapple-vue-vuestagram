@@ -12,7 +12,12 @@
         :style="`background-image: url(${첨부이미지})`"
       ></div>
       <div class="filters">
-        <FilterBox :첨부이미지="첨부이미지" v-for="필터 in 필터들" :key="필터">
+        <FilterBox
+          :첨부이미지="첨부이미지"
+          v-for="필터 in 필터들"
+          :key="필터"
+          :필터="필터"
+        >
         </FilterBox>
       </div>
     </div>
