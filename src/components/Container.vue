@@ -18,6 +18,7 @@
           :key="필터"
           :필터="필터"
         >
+          <span>{{ 필터 }}</span>
         </FilterBox>
       </div>
     </div>

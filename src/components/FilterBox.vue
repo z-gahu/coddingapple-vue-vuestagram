@@ -2,7 +2,9 @@
   <div
     :class="`${필터} filter-item`"
     :style="`background-image:url(${첨부이미지})`"
-  ></div>
+  >
+    <slot></slot>
+  </div>
 </template>
 
 <script>
