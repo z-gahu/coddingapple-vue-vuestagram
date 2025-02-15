@@ -10,6 +10,9 @@
     <img src="./assets/logo.png" class="logo" />
   </div>
 
+  <!-- <div>{{ $store.state.name }}</div>
+  <button @click="$store.state.name = 'jang'">test</button> -->
+
   <Container
     :게시물="게시물"
     :step="step"
