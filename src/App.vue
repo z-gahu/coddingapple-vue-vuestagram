@@ -52,6 +52,11 @@ export default {
       작성한글: "",
     };
   },
+  mounted() {
+    this.emitter.on("작명", (a) => {
+      console.log(a);
+    });
+  },
   methods: {
     more() {
       axios

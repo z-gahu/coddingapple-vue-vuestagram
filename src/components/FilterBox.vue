@@ -3,16 +3,22 @@
     :class="`${필터} filter-item`"
     :style="`background-image:url(${첨부이미지})`"
   >
+    <button @click="fire">버튼</button>
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
+  name: "filterBox",
+  methods: {
+    fire() {
+      this.emitter.emit("작명", "123");
+    },
+  },
   data() {
     return {};
   },
-  name: "filterBox",
   props: {
     첨부이미지: String,
     필터: String,
