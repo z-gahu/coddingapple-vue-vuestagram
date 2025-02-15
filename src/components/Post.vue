@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="post">
     <div class="post-header">
@@ -22,7 +23,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 
 // axios.get("https://codingapple1.github.io/vue/more0.json").then((결과) => {
 //   console.log("!===결과", 결과);
