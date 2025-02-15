@@ -13,7 +13,7 @@ export default {
   name: "filterBox",
   methods: {
     fire() {
-      this.emitter.emit("작명", "123");
+      this.emitter.emit("selectedFilter", `${this.필터}`);
     },
   },
   data() {

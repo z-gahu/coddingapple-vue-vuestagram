@@ -8,6 +8,7 @@
     <!-- 필터선택페이지 -->
     <div v-if="step === 1">
       <div
+        :class="`${this.filter}`"
         class="upload-image"
         :style="`background-image: url(${첨부이미지})`"
       ></div>
@@ -26,6 +27,7 @@
     <!-- 글작성페이지 -->
     <div v-if="step === 2">
       <div
+        :class="`${this.filter}`"
         class="upload-image"
         :style="`background-image: url(${첨부이미지})`"
       ></div>
@@ -75,6 +77,7 @@ export default {
         "willow",
         "xpro2",
       ],
+      filter: "",
     };
   },
   components: {
@@ -86,7 +89,12 @@ export default {
     step: Number,
     첨부이미지: String,
   },
-  methods: {},
+  mounted() {
+    this.emitter.on("selectedFilter", (selectedfilter) => {
+      console.log(selectedfilter);
+      this.filter = selectedfilter;
+    });
+  },
 };
 // console.log("첨부이미지url확인", 첨부이미지);
 </script>

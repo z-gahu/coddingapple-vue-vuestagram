@@ -50,11 +50,13 @@ export default {
       step: 0,
       첨부이미지: "",
       작성한글: "",
+      filter: "",
     };
   },
   mounted() {
-    this.emitter.on("작명", (a) => {
-      console.log(a);
+    this.emitter.on("selectedFilter", (selectedfilter) => {
+      console.log(selectedfilter);
+      this.filter = selectedfilter;
     });
   },
   methods: {
@@ -88,8 +90,9 @@ export default {
         date: "May 15",
         liked: false,
         content: this.작성한글, // 내가 입력한 글
-        filter: "perpetua",
+        filter: this.filter,
       };
+      console.log("!====내게시물", 내게시물);
       this.게시물.unshift(내게시물); // 맨앞에 추가
       this.step = 0; //처음 페이지로
     },

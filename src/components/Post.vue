@@ -6,8 +6,11 @@
     </div>
     <div
       class="post-body"
+      :class="`${게시물.filter}`"
       :style="{ backgroundImage: `url(${게시물.postImage})` }"
-    ></div>
+    >
+      {{ 게시물.filter }}
+    </div>
     <div class="post-content">
       <p>{{ 게시물.likes }} Likes</p>
       <p>
