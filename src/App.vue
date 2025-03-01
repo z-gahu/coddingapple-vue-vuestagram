@@ -11,7 +11,10 @@
   </div>
 
   <!-- <div>{{ $store.state.name }}</div>
-  <button @click="$store.state.name = 'jang'">test</button> -->
+  <button @click="$store.commit('이름변경')">test</button>
+
+  <div>{{ $store.state.age }}</div>
+  <button @click="$store.commit('증가')">test2</button> -->
 
   <Container
     :게시물="게시물"
