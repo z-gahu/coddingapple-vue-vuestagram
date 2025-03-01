@@ -6,6 +6,8 @@ const store = createStore({
       //
       name: "kim",
       age: 20,
+      likes: 0,
+      likesToggle: false,
     };
   },
   mutations: {
@@ -15,6 +17,15 @@ const store = createStore({
     },
     증가(state) {
       state.age++;
+    },
+    likeClick(state) {
+      if (state.likesToggle) {
+        state.likes = state.likes - 1;
+      } else {
+        state.likes = state.likes + 1;
+      }
+      state.likesToggle = !state.likesToggle;
+      console.log("toggle", state.likesToggle);
     },
   },
 });
