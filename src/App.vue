@@ -16,6 +16,9 @@
   <div>{{ $store.state.age }}</div>
   <button @click="$store.commit('증가')">test2</button> -->
 
+  <div>{{ $store.state.name }}</div>
+  <button @click="이름변경()">test3</button>
+
   <Container
     :게시물="게시물"
     :step="step"
@@ -44,12 +47,15 @@
   <p>{{ now() }} {{ 카운터 }}</p>
   <p>{{ now2 }} {{ 카운터 }}</p>
   <button @click="카운터++">버튼</button>
+
+  <p>{{ name }} {{ age }} {{ likes }} {{ 내이름 }}</p>
 </template>
 
 <script>
 import Container from "./components/Container.vue";
 import postdata from "./assets/postdata.js";
 import axios from "axios";
+import { mapMutations, mapState } from "vuex";
 
 export default {
   name: "App",
@@ -113,12 +119,19 @@ export default {
     now() {
       return new Date();
     },
+    ...mapMutations(["이름변경"]),
   },
 
   computed: {
     now2() {
       return new Date(); // 다시 실행되지 않는다.
     },
+    // name() {
+    //   return this.$store.state.name;
+    // },
+
+    ...mapState(["name", "age", "likes"]),
+    ...mapState({ 내이름: "name" }),
   },
 };
 </script>
