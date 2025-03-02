@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import axios from "axios";
 
 const store = createStore({
   state() {
@@ -8,6 +9,7 @@ const store = createStore({
       age: 20,
       likes: 0,
       likesToggle: false,
+      more: {}, //더보기
     };
   },
   mutations: {
@@ -26,6 +28,18 @@ const store = createStore({
       }
       state.likesToggle = !state.likesToggle;
       console.log("toggle", state.likesToggle);
+    },
+    setMore(state, data) {
+      state.more = data;
+    },
+  },
+  actions: {
+    // ajax 하는곳, 오래 걸리는 작업
+    getData(context) {
+      axios.get("https://codingapple1.github.io/vue/more0.json").then((a) => {
+        console.log(a.data);
+        context.commit("setMore", a.data);
+      });
     },
   },
 });
