@@ -40,6 +40,10 @@
   <button @click="step = 0">0</button>
   <button @click="step = 1">1</button>
   <button @click="step = 2">2</button> -->
+
+  <p>{{ now() }} {{ 카운터 }}</p>
+  <p>{{ now2 }} {{ 카운터 }}</p>
+  <button @click="카운터++">버튼</button>
 </template>
 
 <script>
@@ -60,6 +64,7 @@ export default {
       첨부이미지: "",
       작성한글: "",
       filter: "",
+      카운터: 0,
     };
   },
   mounted() {
@@ -104,6 +109,15 @@ export default {
       console.log("!====내게시물", 내게시물);
       this.게시물.unshift(내게시물); // 맨앞에 추가
       this.step = 0; //처음 페이지로
+    },
+    now() {
+      return new Date();
+    },
+  },
+
+  computed: {
+    now2() {
+      return new Date(); // 다시 실행되지 않는다.
     },
   },
 };
