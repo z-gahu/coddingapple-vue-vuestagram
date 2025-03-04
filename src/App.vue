@@ -66,7 +66,7 @@ export default {
     return {
       게시물: postdata,
       더보기: 0,
-      step: 0,
+      step: 3,
       첨부이미지: "",
       작성한글: "",
       filter: "",

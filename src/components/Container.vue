@@ -40,12 +40,18 @@ write!</textarea
         >
       </div>
     </div>
+
+    <div v-if="step === 3">
+      <Mypage />
+    </div>
   </div>
 </template>
 
 <script>
 import Post from "./Post.vue";
 import FilterBox from "./FilterBox.vue";
+import Mypage from "./Mypage.vue";
+
 export default {
   data() {
     return {
@@ -83,6 +89,7 @@ export default {
   components: {
     Post,
     FilterBox,
+    Mypage,
   },
   props: {
     게시물: Array,
