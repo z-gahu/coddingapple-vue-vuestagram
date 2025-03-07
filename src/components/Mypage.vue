@@ -8,13 +8,15 @@
         class="profile"
         :style="`background-image:url(${follow.image})`"
       ></div>
-      <span class="profile-name">{{ follow.name }}</span>
+      <span class="profile-name"
+        >{{ follow.name }}/{{ testReactive.name }}</span
+      >
     </div>
   </div>
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
+import { onMounted, reactive, ref } from "vue";
 import axios from "axios";
 
 export default {
@@ -27,6 +29,7 @@ export default {
   },
   setup() {
     let follower = ref([]);
+    let testReactive = reactive({ name: "jang" });
 
     onMounted(() => {
       axios.get("/follower.json").then((a) => {
@@ -34,7 +37,7 @@ export default {
         follower.value = a.data;
       });
     });
-    return { follower };
+    return { follower, testReactive };
   },
 };
 </script>
