@@ -16,20 +16,26 @@
 </template>
 
 <script>
-import { onMounted, reactive, ref } from "vue";
+import { onMounted, reactive, ref, toRefs } from "vue";
 import axios from "axios";
 
 export default {
   name: "myPage",
+  props: {
+    one: Number,
+  },
   data() {
     return {
       // followerName: String,
       // followerProfileImgUrl: String,
     };
   },
-  setup() {
+  setup(props) {
     let follower = ref([]);
     let testReactive = reactive({ name: "jang" });
+
+    let { one } = toRefs(props);
+    console.log("props:", one.value);
 
     onMounted(() => {
       axios.get("/follower.json").then((a) => {

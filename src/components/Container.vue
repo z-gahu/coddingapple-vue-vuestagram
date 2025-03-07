@@ -42,7 +42,7 @@ write!</textarea
     </div>
 
     <div v-if="step === 3">
-      <Mypage />
+      <Mypage :one="2" />
     </div>
   </div>
 </template>
