@@ -3,7 +3,7 @@
   <div style="padding: 10px">
     <h4>팔로워</h4>
     <input placeholder="?" />
-    <div class="post-header" v-for="follow in follower" :key="follow">
+    <div class="post-header" v-for="(follow, i) in follower" :key="i">
       <div
         class="profile"
         :style="`background-image:url(${follow.image})`"
