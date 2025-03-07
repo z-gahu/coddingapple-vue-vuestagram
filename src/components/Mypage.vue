@@ -2,7 +2,7 @@
 <template>
   <div style="padding: 10px">
     <h4>팔로워</h4>
-    <input placeholder="?" />
+    <input placeholder="?" @input="search($event.target.value)" />
     <div class="post-header" v-for="(follow, i) in follower" :key="i">
       <div
         class="profile"
@@ -32,18 +32,28 @@ export default {
   },
   setup(props) {
     let follower = ref([]);
+    let followerOriginal = ref([]);
     let testReactive = reactive({ name: "jang" });
 
     let { one } = toRefs(props);
     console.log("props:", one.value);
 
+    function search(value) {
+      let newFollower = followerOriginal.value.filter((follow) => {
+        return follow.name.indexOf(value) != -1;
+      });
+      console.log("!필터결과", newFollower);
+      follower.value = [...newFollower];
+    }
+
     onMounted(() => {
       axios.get("/follower.json").then((a) => {
         console.log(a.data);
         follower.value = a.data;
+        followerOriginal.value = [...a.data];
       });
     });
-    return { follower, testReactive };
+    return { follower, testReactive, search };
   },
 };
 </script>
